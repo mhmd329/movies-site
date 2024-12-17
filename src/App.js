@@ -5,6 +5,7 @@ import Watched from "./components/Watched";
 import Watchlist from "./components/Watchlist";
 import Add from "./components/Add";
 import ContextProvider from "./components/context/GlobalContext";
+import './App.css'
 
 const App = () => {
   return (

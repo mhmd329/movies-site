@@ -14,28 +14,28 @@ const Add = () => {
       })
       .catch((error) => console.log(error));
   }, [searchValue]);
+ 
   return (
-    <div className="add-page">
+    <div className='add-page'>
       <div className="container">
         <div className="add-content">
-          <div className="input-container">
+          <div className="input-wrapper">
             <input
-              type="text"
-              placeholder="search for a movie"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
+             type="text"
+             placeholder='Search for a movie'
+             value={searchValue}
+             onChange={(e)=> setSearchValue(e.target.value)}
+             />
+            {
+             movies.length > 0 && (<ul className='results'>
+               {movies.map((movie)=>
+                <li key={movie.imdbID}>{<ResultCard movie={movie}/>}</li>)}
+             </ul>)
+            }
           </div>
-          {movies.length > 0 && (
-            <ul className="results">
-              {movies.map((movie) => (
-                <li key={movie.imdbId}>{<ResultCard movie={movie}/>}</li>
-              ))}
-            </ul>
-          )}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 export default Add;
